@@ -7,11 +7,13 @@
             <div class="card-header">
                 投稿一覧
             </div>
+            @foreach($posts as $post)
             <div class="card-body">
-                <h5 class="card-title">投稿</h5>
-                <p class="card-text">テスト投稿</p>
+                <h5 class="card-title">タイトル:{{$post->title}}</h5>
+                <p class="card-text">内容:{{$post->body}}</p>
                 <a href="#" class="btn btn-primary">テスト詳細</a>
             </div>
+            @endforeach
             <div class="card-footer text-muted">
                 今日
             </div>
