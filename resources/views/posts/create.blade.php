@@ -22,9 +22,21 @@
                     <label>内容</label>
                     <textarea class="form-control" placeholder="内容" rows="5" name="body"></textarea>
                 </div>
+
+                写真1：<input type="file" id="file" name="file" accept="image/jpeg, image/png, image/jpg, image/gif" onchange="handleFileSelect();"><br/>
+                            <button type="button" onclick="send();" id="button">アップロード</button><div id="main">@if(old('image')==!null)
+                            <img class="thumbnail" src="{{old('image')}}" >
+                            <input type="text" class="hidden" value="{{old('image')}}" name="image" type="hidden" >
+                            @endif</div>
+
+
                 <button type="submit" class="btn btn-primary">作成する</button>
             </form>
         </div>
     </div>
 </div>
 @endsection
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
+                            
+<script src="{{ url('test.js') }}"></script>   
+                            

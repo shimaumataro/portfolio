@@ -35,6 +35,18 @@ class PostController extends Controller
         return view('posts.create');
     }
 
+    public function test(Request $request){
+
+        
+        //アップロードパスを指定する。(/storage/upload)
+        // $upload_file_path = storage_path().'/upload/';
+        $upload_file_path = storage_path().'/app/public/';
+        //ファイルを格納する。
+        if($request->file('file')==!null){
+        $request->file('file')->move($upload_file_path ,"image.jpeg");
+        return view('image');
+        }    
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -50,6 +62,14 @@ class PostController extends Controller
         $post->user_id=Auth::id();
 
         $post->save();
+        if($request->image==!null){
+            $post -> image    = "storage/".$post->id."image.jpeg";
+        }
+        $post -> save(); //保存してあげましょう
+        if($post->image==!null){
+            rename('storage/image.jpeg', $post->image);
+        }
+
 
         return redirect()->route('posts.index');
     }
