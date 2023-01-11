@@ -1,3 +1,9 @@
+<style>
+    .thumbnail{
+        width:100px;
+        height:100px;
+    }
+</style>
 @extends('layouts.app')
 @section('content')
 <div class="container">
@@ -11,6 +17,7 @@
             <div class="card-body">
                 <h5 class="card-title">タイトル:{{$post->title}}</h5>
                 <p class="card-text">内容:{{$post->body}}</p>
+                <img class="thumbnail" src="/{{$post->image}}" id="image">
                 <p class="card-text">投稿者:{{$post->user->name}}</p>
                 <a href="{{route('posts.show',$post->id)}}" class="btn btn-primary">テスト詳細</a>
             </div>

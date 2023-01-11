@@ -24,10 +24,7 @@
                 </div>
 
                 写真1：<input type="file" id="file" name="file" accept="image/jpeg, image/png, image/jpg, image/gif" onchange="handleFileSelect();"><br/>
-                            <button type="button" onclick="send();" id="button">アップロード</button><div id="main">@if(old('image')==!null)
-                            <img class="thumbnail" src="{{old('image')}}" >
-                            <input type="text" class="hidden" value="{{old('image')}}" name="image" type="hidden" >
-                            @endif</div>
+                            <button type="button" onclick="send();" id="button">アップロード</button><div id="main"></div>
 
 
                 <button type="submit" class="btn btn-primary">作成する</button>
